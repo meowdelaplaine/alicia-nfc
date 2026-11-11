@@ -19,7 +19,7 @@ function lancerJeu() {
         "🎮 Mini-jeu débloqué ! Le vrai jeu arrive bientôt...";
 }
 // ====================================
-// 🇬🇧 DAILY ENGLISH QUEST
+// DAILY ENGLISH QUEST
 // ====================================
 const englishWords = [
     {
@@ -367,4 +367,3 @@ function updateStreak() {
 }
 // Affiche les stats dès l'ouverture
 updateEnglishStats();
-}
