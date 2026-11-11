@@ -18,121 +18,205 @@ function lancerJeu() {
     document.getElementById("jeu").textContent =
         "🎮 Mini-jeu débloqué ! Le vrai jeu arrive bientôt...";
 }
-// ====================================
-// DAILY ENGLISH QUEST
-// ====================================
 const englishWords = [
+    // POP, QUEER ET STAN CULTURE
     {
-        word: "Awkward",
-        answers: ["Courageux", "Gênant / maladroit", "Affamé", "Brillant"],
-        correct: 1
+        word: "Gagged",
+        correctAnswer: "Très impressionné",
+        wrongAnswers: ["Complètement épuisé", "Plutôt contrarié", "Un peu perdu"]
     },
     {
-        word: "Stubborn",
-        answers: ["Têtu", "Fatigué", "Chanceux", "Silencieux"],
-        correct: 0
+        word: "Slay",
+        correctAnswer: "Faire sensation",
+        wrongAnswers: ["Créer une polémique", "Changer d’avis", "Partir discrètement"]
     },
     {
-        word: "Clumsy",
-        answers: ["Calme", "Maladroit", "Drôle", "Rapide"],
-        correct: 1
+        word: "Shade",
+        correctAnswer: "Une remarque piquante",
+        wrongAnswers: ["Un grand compliment", "Une fausse excuse", "Une rumeur étrange"]
     },
     {
-        word: "Whisper",
-        answers: ["Chuchoter", "Crier", "Courir", "Dormir"],
-        correct: 0
+        word: "Petty",
+        correctAnswer: "Mesquin",
+        wrongAnswers: ["Audacieux", "Touchant", "Mal à l’aise"]
     },
     {
-        word: "Wander",
-        answers: ["Se cacher", "Errer / se promener", "Attendre", "Tomber"],
-        correct: 1
+        word: "Snatched",
+        correctAnswer: "Absolument impeccable",
+        wrongAnswers: ["Complètement dépassé", "Assez chaotique", "Très controversé"]
     },
     {
-        word: "Fearless",
-        answers: ["Peureux", "Sans peur", "Fatigué", "Impatient"],
-        correct: 1
+        word: "Sassy",
+        correctAnswer: "Impertinent et assuré",
+        wrongAnswers: ["Discret et réservé", "Calme et prudent", "Naïf et sensible"]
     },
     {
-        word: "Achievement",
-        answers: ["Échec", "Accomplissement", "Souvenir", "Voyage"],
-        correct: 1
+        word: "Messy",
+        correctAnswer: "Plein de drama",
+        wrongAnswers: ["Très sophistiqué", "Assez prévisible", "Parfaitement organisé"]
     },
     {
-        word: "Overwhelmed",
-        answers: ["Submergé / dépassé", "Heureux", "Calme", "Ennuyé"],
-        correct: 0
+        word: "Serving",
+        correctAnswer: "Faire forte impression",
+        wrongAnswers: ["Chercher une excuse", "Suivre une tendance", "Jouer un personnage"]
     },
     {
-        word: "Worthwhile",
-        answers: [
-            "Qui en vaut la peine",
-            "Dangereux",
-            "Impossible",
-            "Gratuit"
-        ],
-        correct: 0
+        word: "Read",
+        correctAnswer: "Remettre quelqu’un à sa place",
+        wrongAnswers: ["Comprendre une référence", "Défendre publiquement quelqu’un", "Changer rapidement de sujet"]
     },
     {
-        word: "Breathtaking",
-        answers: [
-            "Ennuyeux",
-            "Époustouflant",
-            "Silencieux",
-            "Étrange"
-        ],
-        correct: 1
+        word: "Clocked",
+        correctAnswer: "Avoir remarqué quelque chose",
+        wrongAnswers: ["Avoir complètement oublié", "Avoir beaucoup exagéré", "Avoir longuement hésité"]
     },
     {
-        word: "Reckless",
-        answers: [
-            "Prudent",
-            "Imprudent / téméraire",
-            "Paresseux",
-            "Honnête"
-        ],
-        correct: 1
+        word: "Tea",
+        correctAnswer: "Les potins",
+        wrongAnswers: ["Les compliments", "Les excuses", "Les projets"]
     },
     {
-        word: "Reliable",
-        answers: [
-            "Fiable",
-            "Dangereux",
-            "Timide",
-            "Égoïste"
-        ],
-        correct: 0
+        word: "Spill",
+        correctAnswer: "Tout raconter",
+        wrongAnswers: ["Tout gâcher", "Tout organiser", "Tout oublier"]
     },
     {
-        word: "Grateful",
-        answers: [
-            "Reconnaissant",
-            "Méfiant",
-            "Jaloux",
-            "Maladroit"
-        ],
-        correct: 0
+        word: "Receipts",
+        correctAnswer: "Des preuves",
+        wrongAnswers: ["Des excuses", "Des critiques", "Des souvenirs"]
     },
     {
-        word: "Curious",
-        answers: [
-            "Curieux",
-            "Fatigué",
-            "Courageux",
-            "Fâché"
-        ],
-        correct: 0
+        word: "Shook",
+        correctAnswer: "Sous le choc",
+        wrongAnswers: ["Très motivé", "Un peu jaloux", "Plutôt soulagé"]
     },
     {
-        word: "Confident",
-        answers: [
-            "Perdu",
-            "Confiant",
-            "Ennuyé",
-            "Inquiet"
-        ],
-        correct: 1
-    }
+        word: "Pressed",
+        correctAnswer: "Très contrarié",
+        wrongAnswers: ["Très élégant", "Très confiant", "Très occupé"]
+    },
+    {
+        word: "Salty",
+        correctAnswer: "Amer et vexé",
+        wrongAnswers: ["Calme et posé", "Drôle et léger", "Naïf et gentil"]
+    },
+    {
+        word: "Thirsty",
+        correctAnswer: "En quête d’attention",
+        wrongAnswers: ["Sans inspiration", "Facile à convaincre", "Très en colère"]
+    },
+    {
+        word: "Low-key",
+        correctAnswer: "De manière discrète",
+        wrongAnswers: ["De manière excessive", "De manière immédiate", "De manière certaine"]
+    },
+    {
+        word: "High-key",
+        correctAnswer: "De manière très assumée",
+        wrongAnswers: ["De manière secrète", "De manière hésitante", "De manière occasionnelle"]
+    },
+    {
+        word: "Bop",
+        correctAnswer: "Un morceau entraînant",
+        wrongAnswers: ["Un album décevant", "Une chanson ancienne", "Un concert improvisé"]
+    },
+    {
+        word: "Banger",
+        correctAnswer: "Un excellent morceau",
+        wrongAnswers: ["Une chanson oubliée", "Un mauvais remix", "Une ballade mélancolique"]
+    },
+    {
+        word: "Flop",
+        correctAnswer: "Un gros échec",
+        wrongAnswers: ["Un retour réussi", "Un projet secret", "Un succès inattendu"]
+    },
+    {
+        word: "Stan",
+        correctAnswer: "Un fan extrêmement dévoué",
+        wrongAnswers: ["Un critique très sévère", "Un artiste débutant", "Un ancien admirateur"]
+    },
+    {
+        word: "Unhinged",
+        correctAnswer: "Complètement déjanté",
+        wrongAnswers: ["Très sentimental", "Parfaitement raisonnable", "Un peu prétentieux"]
+    },
+    {
+        word: "Cringe",
+        correctAnswer: "Très gênant",
+        wrongAnswers: ["Très touchant", "Très subtil", "Très captivant"]
+    },
+    {
+        word: "Corny",
+        correctAnswer: "Un peu ringard",
+        wrongAnswers: ["Très élégant", "Plutôt agressif", "Vraiment mystérieux"]
+    },
+    {
+        word: "Wholesome",
+        correctAnswer: "Réconfortant et positif",
+        wrongAnswers: ["Embarrassant et maladroit", "Prétentieux et calculé", "Imprévisible et risqué"]
+    },
+    {
+        word: "Smug",
+        correctAnswer: "Trop satisfait de soi",
+        wrongAnswers: ["Très généreux", "Plein de regrets", "Facile à vivre"]
+    },
+    {
+        word: "Outdid",
+        correctAnswer: "A surpassé les autres",
+        wrongAnswers: ["A imité les autres", "A déçu les autres", "A abandonné les autres"]
+    },
+    {
+        word: "Ate",
+        correctAnswer: "A totalement assuré",
+        wrongAnswers: ["A beaucoup exagéré", "A complètement échoué", "A volontairement menti"]
+    },
+    // VIE COURANTE ET CONTEXTE PROFESSIONNEL
+    {
+        word: "Backlog",
+        correctAnswer: "Une liste de travail en attente",
+        wrongAnswers: ["Un compte rendu de réunion", "Une demande prioritaire", "Un planning déjà terminé"]
+    },
+    {
+        word: "Deadline",
+        correctAnswer: "La date limite",
+        wrongAnswers: ["La date de lancement", "La durée estimée", "La date de réunion"]
+    },
+    {
+        word: "Workload",
+        correctAnswer: "La charge de travail",
+        wrongAnswers: ["La méthode de travail", "Le lieu de travail", "Le contrat de travail"]
+    },
+    {
+        word: "Feedback",
+        correctAnswer: "Un retour sur le travail",
+        wrongAnswers: ["Une demande de congé", "Une nouvelle procédure", "Une décision définitive"]
+    },
+    {
+        word: "Follow-up",
+        correctAnswer: "Une action de suivi",
+        wrongAnswers: ["Une réunion annulée", "Une demande urgente", "Une présentation finale"]
+    },
+    {
+        word: "Handover",
+        correctAnswer: "Une transmission de responsabilités",
+        wrongAnswers: ["Une augmentation de salaire", "Une évaluation annuelle", "Une réunion informelle"]
+    },
+    {
 ];
+function shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const randomIndex =
+            Math.floor(Math.random() * (i + 1));
+        const temporaryValue =
+            shuffled[i];
+        shuffled[i] =
+            shuffled[randomIndex];
+        shuffled[randomIndex] =
+            temporaryValue;
+    }
+    return shuffled;
+}
 // ====================================
 // PROGRESSION
 // ====================================
@@ -183,99 +267,166 @@ function updateEnglishStats() {
 // LANCEMENT DU QUIZ
 // ====================================
 function lancerEnglishQuest() {
-    const today = getToday();
+    const quest =
+        document.getElementById("englishQuest");
+    const today =
+        getToday();
     const completed =
         localStorage.getItem("englishCompleted");
-    updateStreak();
     if (completed === today) {
-        document.getElementById("englishQuest").innerHTML =
-            "✅ Quête terminée aujourd'hui !<br><br>" +
-            "🔥 Reviens demain pour maintenir ton streak.";
-        updateEnglishStats();
+        quest.innerHTML =
+            "<p>✅ Quête déjà terminée aujourd’hui !</p>" +
+            "<p>🔥 Reviens demain pour continuer ton streak.</p>";
         return;
     }
-    const index = getDailyWordIndex();
-    const question = englishWords[index];
+    const attempts =
+        getAttempts();
+    if (attempts <= 0) {
+        quest.innerHTML =
+            "<p>💀 Tu n’as plus d’essais aujourd’hui.</p>" +
+            "<p>Reviens demain pour une nouvelle quête !</p>";
+        return;
+    }
+    const question =
+        englishWords[getDailyWordIndex()];
+    const options = [
+        {
+            text: question.correctAnswer,
+            isCorrect: true
+        },
+        ...question.wrongAnswers.map(function(answer) {
+            return {
+                text: answer,
+                isCorrect: false
+            };
+        })
+    ];
+    const shuffledOptions =
+        shuffleArray(options);
+    localStorage.setItem(
+        "englishDailyOptions",
+        JSON.stringify(shuffledOptions)
+    );
     let html = "";
-    html += "<h3>⚔️ Défi du jour</h3>";
+    html += "<h3>⚔️ Défi du jour ⚔️</h3>";
     html +=
         "<p>Que signifie <strong>" +
         question.word +
         "</strong> ?</p>";
-    question.answers.forEach(
-        function(answer, answerIndex) {
+    shuffledOptions.forEach(
+        function(option, index) {
             html +=
-                '<button onclick="checkEnglishAnswer(' +
-                answerIndex +
+                '<button type="button" ' +
+                'onclick="checkEnglishAnswer(' +
+                index +
                 ')">' +
-                answer +
-                '</button><br><br>';
+                option.text +
+                "</button><br><br>";
         }
     );
-    document.getElementById("englishQuest").innerHTML =
-        html;
-    updateEnglishStats();
+    quest.innerHTML = html;
 }
 // ====================================
 // VÉRIFICATION
 // ====================================
 function checkEnglishAnswer(answerIndex) {
-    const today = getToday();
+    const quest =
+        document.getElementById("englishQuest");
+    const today =
+        getToday();
     const question =
         englishWords[getDailyWordIndex()];
-    if (answerIndex === question.correct) {
+    if (
+        localStorage.getItem("englishCompleted")
+        === today
+    ) {
+        quest.innerHTML =
+            "<p>✅ Tu as déjà terminé la quête aujourd’hui.</p>";
+        return;
+    }
+    const savedOptions =
+        localStorage.getItem("englishDailyOptions");
+    if (!savedOptions) {
+        lancerEnglishQuest();
+        return;
+    }
+    const options =
+        JSON.parse(savedOptions);
+    const selectedOption =
+        options[answerIndex];
+    if (!selectedOption) {
+        lancerEnglishQuest();
+        return;
+    }
+    if (selectedOption.isCorrect) {
         englishXP += 20;
         localStorage.setItem(
             "englishXP",
-            englishXP
+            String(englishXP)
+        );
+        const lastSuccess =
+            localStorage.getItem("englishLastSuccess");
+        if (lastSuccess === getYesterday()) {
+            englishStreak += 1;
+        } else if (lastSuccess !== today) {
+            englishStreak = 1;
+        }
+        localStorage.setItem(
+            "englishStreak",
+            String(englishStreak)
+        );
+        localStorage.setItem(
+            "englishLastSuccess",
+            today
         );
         localStorage.setItem(
             "englishCompleted",
             today
         );
-        updateStreakAfterSuccess();
         const level =
             Math.floor(englishXP / 100) + 1;
-        document.getElementById("englishQuest").innerHTML =
-            "✅ GOOD JOB!<br><br>" +
-            "<strong>" +
+        quest.innerHTML =
+            "<h3>✅ Good job!</h3>" +
+            "<p><strong>" +
             question.word +
-            "</strong><br><br>" +
-            "⭐ +20 XP<br>" +
-            "🔥 Streak : " +
+            "</strong></p>" +
+            "<p>La bonne réponse était :</p>" +
+            "<p><strong>" +
+            question.correctAnswer +
+            "</strong></p>" +
+            "<p>⭐ +20 XP</p>" +
+            "<p>🔥 Streak : " +
             englishStreak +
-            " jours<br>" +
-            "🏆 Niveau " +
+            " jour(s)</p>" +
+            "<p>🏆 Niveau " +
             level +
-            "<br><br>" +
-            "Reviens demain pour ta prochaine quête ! ⚔️";
+            "</p>" +
+            "<p>Reviens demain pour ta prochaine quête !</p>";
         updateEnglishStats();
-    }
-    else {
-        englishLives--;
-        localStorage.setItem(
-            "englishLives",
-            englishLives
-        );
-        if (englishLives <= 0) {
-            document.getElementById("englishQuest").innerHTML =
-                "💀 Plus de vies aujourd'hui !<br><br>" +
-                "La bonne réponse était :<br>" +
-                "<strong>" +
-                question.answers[question.correct] +
-                "</strong><br><br>" +
-                "Reviens demain pour une nouvelle quête.";
-        }
-        else {
-            document.getElementById("englishQuest").innerHTML =
-                "❌ Mauvaise réponse !<br><br>" +
-                "❤️ Vies restantes : " +
-                englishLives +
-                "<br><br>" +
-                '<button onclick="lancerEnglishQuest()">' +
+    } else {
+        let attempts =
+            getAttempts() - 1;
+        setAttempts(attempts);
+        if (attempts <= 0) {
+            quest.innerHTML =
+                "<h3>💀 Plus d’essais</h3>" +
+                "<p>La bonne réponse était :</p>" +
+                "<p><strong>" +
+                question.correctAnswer +
+                "</strong></p>" +
+                "<p>Reviens demain pour une nouvelle quête.</p>";
+        } else {
+            quest.innerHTML =
+                "<p>❌ Mauvaise réponse !</p>" +
+                "<p>❤️ Il te reste " +
+                attempts +
+                " essai(s).</p>" +
+                '<button type="button" ' +
+                'onclick="lancerEnglishQuest()">' +
                 "Réessayer" +
                 "</button>";
         }
+        updateEnglishStats();
     }
 }
 // ====================================
