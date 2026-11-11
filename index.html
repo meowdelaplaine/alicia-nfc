@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Boost ✨</title>
+<link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>
+ 
+<main class="container">
+ 
+<header>
+<div class="logo">✨</div>
+<h1>Daily Boost</h1>
+<p>Ta petite dose quotidienne de bonne humeur.</p>
+</header>
+ 
+<!-- AFFIRMATION -->
+<section class="card affirmation">
+<span class="tag">💛 AFFIRMATION DU JOUR</span>
+<h2>You are capable of more than you think.</h2>
+<p>N'oublie pas de te faire confiance aujourd'hui.</p>
+</section>
+ 
+<!-- QUIZ -->
+<section class="card">
+<span class="tag">🇬🇧 QUIZ DU JOUR</span>
+ 
+<h2>Que signifie "Resilient" ?</h2>
+ 
+<div class="answers">
+<button onclick="checkAnswer(false)">A. Curieux</button>
+<button onclick="checkAnswer(true)">B. Résilient</button>
+<button onclick="checkAnswer(false)">C. Fatigué</button>
+<button onclick="checkAnswer(false)">D. Impatient</button>
+</div>
+ 
+<p id="quiz-result"></p>
+</section>
+ 
+<!-- MINI JEU -->
+<section class="card">
+<span class="tag">🎮 MINI-JEU</span>
+ 
+<h2>Trouve le nombre secret</h2>
+<p>J'ai choisi un nombre entre 1 et 10.</p>
+ 
+<div class="game">
+<input
+type="number"
+id="guess"
+min="1"
+max="10"
+placeholder="?"
+>
+<button onclick="guessNumber()">Essayer</button>
+</div>
+ 
+<p id="game-result"></p>
+</section>
+ 
+<footer>
+Made with ❤️ just for you.
+</footer>
+ 
+</main>
+ 
+<script src="script.js"></script>
+ 
+</body>
+</html>
