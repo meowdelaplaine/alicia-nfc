@@ -1,151 +1,67 @@
 * {
+margin: 0;
+padding: 0;
 box-sizing: border-box;
 }
- 
 body {
-margin: 0;
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-background: linear-gradient(160deg, #f6efff, #fff5f8);
-color: #252525;
+min-height: 100vh;
+background: linear-gradient(160deg, #0b0b16, #17122b, #24153d);
+color: #ffffff;
+font-family: Arial, sans-serif;
+text-align: center;
+padding: 25px 18px;
 }
- 
-.container {
-max-width: 500px;
-margin: auto;
-padding: 30px 20px;
-}
- 
 header {
-text-align: center;
-margin-bottom: 30px;
+max-width: 600px;
+margin: 20px auto 40px auto;
 }
- 
-.logo {
-font-size: 45px;
-}
- 
 h1 {
-margin-bottom: 5px;
+color: #f5c86b;
+font-size: 2.1rem;
+margin-bottom: 18px;
+text-shadow: 0 0 15px rgba(245, 200, 107, 0.35);
 }
- 
 header p {
-color: #777;
+color: #c8c4d8;
+margin: 7px 0;
+line-height: 1.5;
 }
- 
-.card {
-background: white;
-border-radius: 22px;
-padding: 24px;
-margin-bottom: 20px;
- 
+main {
+width: 100%;
+max-width: 600px;
+margin: auto;
+}
+section {
+background: rgba(255, 255, 255, 0.06);
+border: 1px solid rgba(245, 200, 107, 0.25);
+border-radius: 20px;
+padding: 28px 20px;
+margin-bottom: 22px;
 box-shadow:
-0 10px 30px rgba(0,0,0,0.07);
+0 10px 30px rgba(0, 0, 0, 0.3),
+inset 0 1px 0 rgba(255, 255, 255, 0.05);
+transition: transform 0.25s ease, border-color 0.25s ease;
 }
- 
-.affirmation {
-background: linear-gradient(135deg, #7667ff, #b26dff);
-color: white;
+section:hover {
+transform: translateY(-3px);
+border-color: #f5c86b;
 }
- 
-.tag {
-font-size: 12px;
-font-weight: bold;
-letter-spacing: 1px;
-}
- 
 h2 {
-margin-top: 15px;
-line-height: 1.3;
+color: #f5c86b;
+margin-bottom: 15px;
+font-size: 1.4rem;
 }
- 
-.answers {
-display: grid;
-gap: 10px;
-margin-top: 20px;
+section p {
+color: #dad7e5;
+line-height: 1.6;
+margin-bottom: 18px;
 }
- 
 button {
+background: linear-gradient(135deg, #7c4dff, #a56eff);
+color: white;
 border: none;
-padding: 15px;
-border-radius: 14px;
- 
-background-color: #eeeaff;
- 
-font-size: 16px;
-cursor: pointer;
-}
- 
-button:active {
-transform: scale(0.97);
-}
- 
-.game {
-display: flex;
-gap: 10px;
-margin-top: 20px;
-}
- 
-input {
-width: 70px;
-padding: 12px;
 border-radius: 12px;
-border: 1px solid #ddd;
-font-size: 18px;
-text-align: center;
-}
- 
-#quiz-result,
-#game-result {
+padding: 13px 25px;
+font-size: 1rem;
 font-weight: bold;
-margin-top: 15px;
-}
- 
-footer {
-text-align: center;
-color: #aaa;
-margin: 30px;
-}
-3. script.js
-C'est ici que tu mets l'intelligence de ton cadeau.
-JavaScript
-function checkAnswer(correct) {
- 
-const result = document.getElementById("quiz-result");
- 
-if (correct) {
-result.innerHTML = "✅ Bonne réponse ! Resilient = Résilient.";
-result.style.color = "#2ca66f";
-} else {
-result.innerHTML = "❌ Presque ! Essaie encore.";
-result.style.color = "#e05252";
-}
-}
- 
- 
-// MINI JEU
- 
-const secretNumber = Math.floor(Math.random() * 10) + 1;
- 
-function guessNumber() {
- 
-const guess = Number(
-document.getElementById("guess").value
-);
- 
-const result = document.getElementById("game-result");
- 
-if (guess === secretNumber) {
- 
-result.innerHTML = "🎉 GAGNÉ ! Tu as trouvé !";
-result.style.color = "#2ca66f";
- 
-} else if (guess < secretNumber) {
- 
-result.innerHTML = "👆 Plus grand !";
- 
-} else {
- 
-result.innerHTML = "👇 Plus petit !";
- 
-}
-}
+cursor: pointer;
