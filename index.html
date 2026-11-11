@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ton aventure</title>
+    <title>Alicia's daily page!</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,14 +31,15 @@
             <p id="jeu"></p>
         </section>
         <section>
-            <h2>🔒 Quête secrète</h2>
+            <h2>🔒 Daily English Quest</h2>
             <p>
-                Certaines récompenses doivent être méritées.
+                Un nouveau défi anglais t'attend chaque jour..
             </p>
-            <button onclick="queteSecrete()">
-                Tenter d'ouvrir
+            <div id="englishStats"></div>
+            <button id="englishStartButton" onclick="lancerEnglishQuest()">
+                Let's play!
             </button>
-            <p id="secret"></p>
+            <div id="englishQuest"></div>
         </section>
     </main>
     <footer>
