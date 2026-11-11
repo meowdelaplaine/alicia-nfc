@@ -230,8 +230,7 @@ const englishWords = [
         word: "Handover",
         correctAnswer: "Une transmission de responsabilités",
         wrongAnswers: ["Une augmentation de salaire", "Une évaluation annuelle", "Une réunion informelle"]
-    },
-    {
+    }
 ];
 function shuffleArray(array) {
     const shuffled = [...array];
