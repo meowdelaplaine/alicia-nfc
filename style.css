@@ -77,21 +77,23 @@ cursor: pointer;
     overflow: hidden;
 }
 
-#floatingPhotos .floating-photo {
+#floatingPhotos img.floating-photo {
     position: absolute !important;
 
-    width: 45px !important;
-    height: 45px !important;
+    width: 32px !important;
+    height: 32px !important;
 
-    max-width: 45px !important;
-    max-height: 45px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
 
     object-fit: cover !important;
 
-    border-radius: 12px;
-    border: 3px solid white;
+    border-radius: 6px !important;
+    border: 2px solid white !important;
 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.20);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.20);
 
     transform: rotate(var(--rotation));
 }
