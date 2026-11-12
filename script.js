@@ -649,48 +649,46 @@ function afficherPhotosAleatoires() {
 
     container.innerHTML = "";
 
-    const photos =
-        shuffleArray(floatingPhotoList).slice(0, 8);
+    // Choisit UNE seule photo au hasard
+    const randomIndex =
+        Math.floor(Math.random() * floatingPhotoList.length);
 
+    const photo =
+        floatingPhotoList[randomIndex];
+
+    const img =
+        document.createElement("img");
+
+    img.src = photo;
+    img.className = "floating-photo";
+
+    // Position aléatoire
     const positions = [
-        { top: "4%", left: "3%" },
-        { top: "13%", right: "3%" },
-        { top: "25%", left: "2%" },
-        { top: "37%", right: "2%" },
-        { top: "51%", left: "3%" },
-        { top: "63%", right: "3%" },
-        { top: "76%", left: "2%" },
-        { top: "88%", right: "2%" }
+        { top: "10%", left: "3%" },
+        { top: "25%", right: "3%" },
+        { top: "45%", left: "3%" },
+        { top: "65%", right: "3%" },
+        { top: "80%", left: "3%" }
     ];
 
-    photos.forEach(function(photo, index) {
+    const randomPosition =
+        positions[Math.floor(Math.random() * positions.length)];
 
-        const img =
-            document.createElement("img");
+    Object.assign(
+        img.style,
+        randomPosition
+    );
 
-        img.src = photo;
+    // Petite rotation aléatoire
+    const rotation =
+        Math.floor(Math.random() * 21) - 10;
 
-        img.className =
-            "floating-photo";
+    img.style.setProperty(
+        "--rotation",
+        rotation + "deg"
+    );
 
-        const position =
-            positions[index];
-
-        Object.keys(position).forEach(function(key) {
-            img.style[key] =
-                position[key];
-        });
-
-        const rotation =
-            Math.floor(Math.random() * 25) - 12;
-
-        img.style.setProperty(
-            "--rotation",
-            rotation + "deg"
-        );
-
-        container.appendChild(img);
-    });
+    container.appendChild(img);
 }
 
 afficherPhotosAleatoires();
