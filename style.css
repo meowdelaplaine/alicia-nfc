@@ -80,25 +80,18 @@ cursor: pointer;
 #floatingPhotos .floating-photo {
     position: absolute !important;
 
-    width: 55px !important;
-    height: 55px !important;
+    width: 45px !important;
+    height: 45px !important;
 
-    max-width: 55px !important;
-    max-height: 55px !important;
+    max-width: 45px !important;
+    max-height: 45px !important;
 
     object-fit: cover !important;
 
     border-radius: 12px;
     border: 3px solid white;
 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.20);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.20);
 
     transform: rotate(var(--rotation));
-}
-
-section,
-.card,
-.container {
-    position: relative;
-    z-index: 2;
 }
