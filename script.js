@@ -650,35 +650,39 @@ function afficherPhotosAleatoires() {
     container.innerHTML = "";
 
     const photos =
-        shuffleArray(floatingPhotoList).slice(0, 6);
+        shuffleArray(floatingPhotoList).slice(0, 8);
 
-    photos.forEach(function(photo) {
+    const positions = [
+        { top: "4%", left: "3%" },
+        { top: "13%", right: "3%" },
+        { top: "25%", left: "2%" },
+        { top: "37%", right: "2%" },
+        { top: "51%", left: "3%" },
+        { top: "63%", right: "3%" },
+        { top: "76%", left: "2%" },
+        { top: "88%", right: "2%" }
+    ];
+
+    photos.forEach(function(photo, index) {
 
         const img =
             document.createElement("img");
 
         img.src = photo;
-        img.className = "floating-photo";
 
-        const positions = [
-            { top: "8%", left: "3%" },
-            { top: "20%", right: "3%" },
-            { top: "38%", left: "4%" },
-            { top: "52%", right: "4%" },
-            { top: "68%", left: "3%" },
-            { top: "82%", right: "3%" }
-        ];
+        img.className =
+            "floating-photo";
 
         const position =
-            positions[container.children.length];
+            positions[index];
 
-        Object.assign(
-            img.style,
-            position
-        );
+        Object.keys(position).forEach(function(key) {
+            img.style[key] =
+                position[key];
+        });
 
         const rotation =
-            Math.floor(Math.random() * 21) - 10;
+            Math.floor(Math.random() * 25) - 12;
 
         img.style.setProperty(
             "--rotation",
