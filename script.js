@@ -267,6 +267,56 @@ function getToday() {
         String(now.getDate()).padStart(2, "0");
     return year + "-" + month + "-" + day;
 }
+function getYesterday() {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+
+    const year = yesterday.getFullYear();
+    const month = String(
+        yesterday.getMonth() + 1
+    ).padStart(2, "0");
+    const day = String(
+        yesterday.getDate()
+    ).padStart(2, "0");
+
+    return year + "-" + month + "-" + day;
+}
+
+function getAttempts() {
+    const today = getToday();
+    const attemptsDate =
+        localStorage.getItem("englishAttemptsDate");
+
+    if (attemptsDate !== today) {
+        localStorage.setItem("englishAttempts", "3");
+        localStorage.setItem("englishAttemptsDate", today);
+        return 3;
+    }
+
+    const savedAttempts =
+        localStorage.getItem("englishAttempts");
+
+    if (savedAttempts === null) {
+        localStorage.setItem("englishAttempts", "3");
+        return 3;
+    }
+
+    return Number(savedAttempts);
+}
+
+function setAttempts(attempts) {
+    const safeAttempts = Math.max(0, attempts);
+
+    localStorage.setItem(
+        "englishAttempts",
+        String(safeAttempts)
+    );
+
+    localStorage.setItem(
+        "englishAttemptsDate",
+        getToday()
+    );
+}
 // ====================================
 // MOT DU JOUR
 // ====================================
@@ -545,5 +595,21 @@ function updateStreak() {
         );
     }
 }
-// Affiche les stats dès l'ouverture
+// Vérifie le streak et réinitialise les essais du jour
+updateStreak();
+getAttempts();
 updateEnglishStats();
+
+// RESET
+function resetEnglishQuest() {
+    localStorage.removeItem("englishXP");
+    localStorage.removeItem("englishStreak");
+    localStorage.removeItem("englishLives");
+    localStorage.removeItem("englishLastSuccess");
+    localStorage.removeItem("englishCompleted");
+    localStorage.removeItem("englishDailyOptions");
+    localStorage.removeItem("englishAttempts");
+    localStorage.removeItem("englishAttemptsDate");
+
+    location.reload();
+}
