@@ -613,6 +613,7 @@ function resetEnglishQuest() {
 
     location.reload();
 }
+
 const floatingPhotoList = [
     "images/photo1.jpg",
     "images/photo2.jpg",
@@ -638,57 +639,316 @@ const floatingPhotoList = [
     "images/photo22.jpg",
 ];
 
+
+// ====================================
+// REND LES PHOTOS DEPLACABLES
+// ====================================
+
+function rendrePhotoDeplacable(photo) {
+
+    let dragging = false;
+
+    let startX = 0;
+    let startY = 0;
+
+    let originalLeft = 0;
+    let originalTop = 0;
+
+
+    photo.addEventListener(
+        "pointerdown",
+        function(event) {
+
+            event.preventDefault();
+
+            dragging = true;
+
+            photo.setPointerCapture(
+                event.pointerId
+            );
+
+            const rect =
+                photo.getBoundingClientRect();
+
+            const parentRect =
+                photo.parentElement.getBoundingClientRect();
+
+
+            originalLeft =
+                rect.left - parentRect.left;
+
+            originalTop =
+                rect.top - parentRect.top;
+
+
+            startX =
+                event.clientX;
+
+            startY =
+                event.clientY;
+
+
+            // On transforme la position actuelle
+            // en position fixe gauche/haut
+
+            photo.style.left =
+                originalLeft + "px";
+
+            photo.style.top =
+                originalTop + "px";
+
+            photo.style.right =
+                "auto";
+
+
+            // Pause du flottement
+            photo.style.animation =
+                "none";
+
+
+            // La photo passe devant les autres
+            photo.style.zIndex =
+                "100";
+
+
+            photo.style.cursor =
+                "grabbing";
+        }
+    );
+
+
+    photo.addEventListener(
+        "pointermove",
+        function(event) {
+
+            if (!dragging) {
+                return;
+            }
+
+
+            const deltaX =
+                event.clientX - startX;
+
+            const deltaY =
+                event.clientY - startY;
+
+
+            let newLeft =
+                originalLeft + deltaX;
+
+            let newTop =
+                originalTop + deltaY;
+
+
+            // Empêche de faire disparaître
+            // complètement la photo
+
+            const parent =
+                photo.parentElement;
+
+            const maxLeft =
+                parent.clientWidth -
+                photo.offsetWidth;
+
+            const maxTop =
+                parent.clientHeight -
+                photo.offsetHeight;
+
+
+            newLeft =
+                Math.max(
+                    0,
+                    Math.min(newLeft, maxLeft)
+                );
+
+            newTop =
+                Math.max(
+                    0,
+                    Math.min(newTop, maxTop)
+                );
+
+
+            photo.style.left =
+                newLeft + "px";
+
+            photo.style.top =
+                newTop + "px";
+        }
+    );
+
+
+    function stopDrag(event) {
+
+        if (!dragging) {
+            return;
+        }
+
+        dragging = false;
+
+
+        photo.style.zIndex =
+            "";
+
+        photo.style.cursor =
+            "grab";
+
+
+        try {
+
+            photo.releasePointerCapture(
+                event.pointerId
+            );
+
+        } catch (error) {
+
+            // Rien à faire
+
+        }
+
+
+        // Le flottement reprend
+
+        photo.style.animation =
+            "flotter 3s ease-in-out infinite";
+    }
+
+
+    photo.addEventListener(
+        "pointerup",
+        stopDrag
+    );
+
+
+    photo.addEventListener(
+        "pointercancel",
+        stopDrag
+    );
+}
+
+
+// ====================================
+// AFFICHE 4 PHOTOS ALEATOIRES
+// ====================================
+
 function afficherPhotosAleatoires() {
 
     const container =
-        document.getElementById("floatingPhotos");
+        document.getElementById(
+            "floatingPhotos"
+        );
+
 
     if (!container) {
         return;
     }
 
+
     container.innerHTML = "";
 
-    // Choisit UNE seule photo au hasard
-    const randomIndex =
-        Math.floor(Math.random() * floatingPhotoList.length);
 
-    const photo =
-        floatingPhotoList[randomIndex];
+    // Mélange les photos
+    // puis en sélectionne 4
 
-    const img =
-        document.createElement("img");
+    const photos =
+        shuffleArray(
+            floatingPhotoList
+        ).slice(0, 4);
 
-    img.src = photo;
-    img.className = "floating-photo";
 
-const positions = [
-    { top: "18%", left: "2%" },
-    { top: "27%", right: "2%" },
-    { top: "38%", left: "2%" },
-    { top: "50%", right: "2%" },
-    { top: "62%", left: "2%" },
-    { top: "74%", right: "2%" }
+    // Emplacements de départ
+
+    const positions = [
+
+        {
+            top: "18%",
+            left: "1%"
+        },
+
+        {
+            top: "35%",
+            right: "1%"
+        },
+
+        {
+            top: "55%",
+            left: "1%"
+        },
+
+        {
+            top: "72%",
+            right: "1%"
+        }
+
     ];
 
-    const randomPosition =
-        positions[Math.floor(Math.random() * positions.length)];
 
-    Object.assign(
-        img.style,
-        randomPosition
+    photos.forEach(
+        function(photo, index) {
+
+            const img =
+                document.createElement(
+                    "img"
+                );
+
+
+            img.src =
+                photo;
+
+            img.className =
+                "floating-photo";
+
+            img.alt =
+                "Souvenir";
+
+
+            // Position initiale
+
+            Object.assign(
+                img.style,
+                positions[index]
+            );
+
+
+            // Rotation aléatoire
+
+            const rotation =
+                Math.floor(
+                    Math.random() * 21
+                ) - 10;
+
+
+            img.style.setProperty(
+                "--rotation",
+                rotation + "deg"
+            );
+
+
+            // Les photos ne flottent
+            // pas exactement ensemble
+
+            img.style.animationDelay =
+                (index * 0.4) + "s";
+
+
+            // Rend la photo déplaçable
+
+            rendrePhotoDeplacable(
+                img
+            );
+
+
+            // Ajoute la photo
+
+            container.appendChild(
+                img
+            );
+        }
     );
-
-    // Petite rotation aléatoire
-    const rotation =
-        Math.floor(Math.random() * 21) - 10;
-
-    img.style.setProperty(
-        "--rotation",
-        rotation + "deg"
-    );
-
-    container.appendChild(img);
 }
+
+
+// ====================================
+// LANCEMENT
+// ====================================
 
 afficherPhotosAleatoires();
