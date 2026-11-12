@@ -72,7 +72,7 @@ cursor: pointer;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 700px;
+    max-width: 800px;
     height: 100%;
     pointer-events: none;
     z-index: 5;
@@ -82,19 +82,19 @@ cursor: pointer;
 #floatingPhotos img.floating-photo {
     position: absolute !important;
 
-    width: 45px !important;
-    height: 45px !important;
-    min-width: 45px !important;
-    min-height: 45px !important;
-    max-width: 45px !important;
-    max-height: 45px !important;
+    width: 90px !important;
+    height: 90px !important;
+    min-width: 90px !important;
+    min-height: 90px !important;
+    max-width: 90px !important;
+    max-height: 90px !important;
 
     object-fit: cover !important;
 
-    border-radius: 8px !important;
-    border: 2px solid white !important;
+    border-radius: 12px !important;
+    border: 3px solid white !important;
 
-    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 
     animation: flotter 3s ease-in-out infinite;
 }
@@ -116,16 +116,16 @@ cursor: pointer;
 @media (max-width: 600px) {
 
     #floatingPhotos {
-        width: calc(100% - 10px);
+        width: 100%;
         max-width: none;
     }
 
     #floatingPhotos img.floating-photo {
-        width: 35px !important;
-        height: 35px !important;
-        min-width: 35px !important;
-        min-height: 35px !important;
-        max-width: 35px !important;
-        max-height: 35px !important;
+        width: 70px !important;
+        height: 70px !important;
+        min-width: 70px !important;
+        min-height: 70px !important;
+        max-width: 70px !important;
+        max-height: 70px !important;
     }
 }
