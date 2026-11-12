@@ -71,11 +71,14 @@ cursor: pointer;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
+
     width: 100%;
     max-width: 800px;
     height: 100%;
+
     pointer-events: none;
     z-index: 5;
+
     overflow: visible;
 }
 
@@ -84,6 +87,7 @@ cursor: pointer;
 
     width: 90px !important;
     height: 90px !important;
+
     min-width: 90px !important;
     min-height: 90px !important;
     max-width: 90px !important;
@@ -96,22 +100,45 @@ cursor: pointer;
 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 
+    pointer-events: auto;
+
+    cursor: grab;
+
+    touch-action: none;
+
+    user-select: none;
+    -webkit-user-select: none;
+
     animation: flotter 3s ease-in-out infinite;
 }
 
+#floatingPhotos img.floating-photo:active {
+    cursor: grabbing;
+}
+
 @keyframes flotter {
+
     0% {
-        transform: translateY(0) rotate(var(--rotation));
+        transform:
+            translateY(0px)
+            rotate(var(--rotation));
     }
 
     50% {
-        transform: translateY(-8px) rotate(var(--rotation));
+        transform:
+            translateY(-10px)
+            rotate(var(--rotation));
     }
 
     100% {
-        transform: translateY(0) rotate(var(--rotation));
+        transform:
+            translateY(0px)
+            rotate(var(--rotation));
     }
 }
+
+
+/* VERSION TELEPHONE */
 
 @media (max-width: 600px) {
 
@@ -121,10 +148,13 @@ cursor: pointer;
     }
 
     #floatingPhotos img.floating-photo {
+
         width: 70px !important;
         height: 70px !important;
+
         min-width: 70px !important;
         min-height: 70px !important;
+
         max-width: 70px !important;
         max-height: 70px !important;
     }
