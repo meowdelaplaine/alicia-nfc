@@ -662,13 +662,13 @@ function afficherPhotosAleatoires() {
     img.src = photo;
     img.className = "floating-photo";
 
-    // Position aléatoire
-    const positions = [
-        { top: "10%", left: "3%" },
-        { top: "25%", right: "3%" },
-        { top: "45%", left: "3%" },
-        { top: "65%", right: "3%" },
-        { top: "80%", left: "3%" }
+const positions = [
+    { top: "18%", left: "2%" },
+    { top: "27%", right: "2%" },
+    { top: "38%", left: "2%" },
+    { top: "50%", right: "2%" },
+    { top: "62%", left: "2%" },
+    { top: "74%", right: "2%" }
     ];
 
     const randomPosition =
