@@ -600,19 +600,7 @@ updateStreak();
 getAttempts();
 updateEnglishStats();
 
-// RESET
-function resetEnglishQuest() {
-    localStorage.removeItem("englishXP");
-    localStorage.removeItem("englishStreak");
-    localStorage.removeItem("englishLives");
-    localStorage.removeItem("englishLastSuccess");
-    localStorage.removeItem("englishCompleted");
-    localStorage.removeItem("englishDailyOptions");
-    localStorage.removeItem("englishAttempts");
-    localStorage.removeItem("englishAttemptsDate");
-
-    location.reload();
-}
+// floating photos
 
 const floatingPhotoList = [
     "images/photo1.jpg",
